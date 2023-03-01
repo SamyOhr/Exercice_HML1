@@ -13,18 +13,6 @@ $retour = $base->query('SELECT * FROM movies;');
 while ($data = $retour->fetch()){
 echo $data['id']." ".$data['titre']." ".$data['genre']." ".$data['annee']."</br>";
 }
-<?php
-// Connexion à la base de données
-$host = 'localhost';
-$user = 'id20205701_samyouicher';
-$password = '/&*hX18M$A}2#QGr';
-$dbname = 'id20205701_samy';
-$conn = mysqli_connect($host, $user, $password, $dbname);
-
-// Vérifier la connexion
-if (!$conn) {
-  die("La connexion à la base de données a échoué : " . mysqli_connect_error());
-}
 
 // Récupérer l'année de recherche
 $annee = $_GET['annee'];
