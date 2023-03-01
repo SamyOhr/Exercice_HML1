@@ -1,70 +1,9 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8"/>
-		<title>Exercice HTML</title>
-	</head>
-	
-	<body>
-
-<style>
-li>ul{color:red}		
-
-</style>		
-
-
-<h1> OUICHER Samy</h1>
-
-<!-- Liste à puces -->
-<ul>
-	<li> <b>Vehicule</b>
-	<li style="color:red;">Voiture</li>
-	<li style="color:red;">Camion</li>
-	<li style="color:red;">Scooter</li>
-</ul>
-
-<!-- Liste ordonnée -->
-<ul>
-	<li> <b>Maison</b>
-	<li style="color:red;">Maison</li>
-    <li style="color:red;">cabane</li>
-    <li style="color:red;">appartement</li>
-</ul>
-
-<ul>
-	<li> <b>animaux</b>
-	<li style="color:red;">chien</li>
-    <li style="color:red;">chat</li>
-    <li style="color:red;">poisson</li>
-</ul>
-
-<ul>
-	<li>
-	  <ul>
-		<li style="color:black;"vehicule></li>
-		  <ol>
-			<li style="color:red;">Voiture</li>
-			<li style="color:red;">Camion</li>
-			<li style="color:red;">Scooter</li>
-		  </ol>
-		</li>
-		<listyle="color:black;"vehicule></li>
-		  <ol>
-			<li style="color:red;">Voiture</li>
-			<li style="color:red;">Camion</li>
-			<li style="color:red;">Scooter</li>
-		  </ol>
-		</li>
-		<li style="color:black;"vehicule></li>
-		  <ol>
-			<li style="color:red;">Voiture</li>
-			<li style="color:red;">Camion</li>
-			<li style="color:red;">Scooter</li>
-		  </ol>
-		</li>
-	  </ul>
-	</li>
-  </ul>
-
+<head>
+	<title>Liste des films</title>
+</head>
+<body>
+	<a href="data:text/html,<html><body><h1>Liste des films</h1><?php $base = new PDO('mysql:host=localhost; dbname=id20215400_cnamgreta', 'id20215400_boris', '=nq^^=vKz?FRiz7-');$base->exec('SET CHARACTER SET utf8');$retour = $base->query('SELECT * FROM movies;');while ($data = $retour->fetch()){echo $data['id'].' '.$data['titre'].' '.$data['genre'].' '.$data['annee'].'</br>';}?></body></html>">Voir le code</a>
 </body>
-
 </html>
