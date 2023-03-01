@@ -8,12 +8,33 @@
 	<br>
 	<br>
 	<h1>Formulaire de saisie</h1>
-	<form action="insert.php" method="GET">
-		<p>TITRE ? <input name="titre"/></p>
-		<p>GENRE ? <input name="genre"/></p>
-		<p>ANNEE ? <input name="annee"/></p>
-		<p><input type="submit"/></p>
+	<form action="liste.php" method="get">
+		<label for="ANNEE">Année :</label>
+		<select id="ANNEE" name="ANNEE">
+			<form action="liste.php" method="get">
+				<label for="ANNEE">Année :</label>
+				<select id="ANNEE" name="ANNEE">
+					<?php
+					// Se connecter à la base de données
+					$base = new PDO('mysql:host=localhost; dbname=id20205701_samy', 'id20205701_samyouicher', '/&*hX18M$A}2#QGr');
+					$base->exec("SET CHARACTER SET utf8");
+					
+					// Récupérer la liste des années présentes dans la base de données
+					$annees = $base->query("SELECT DISTINCT annee FROM movies ORDER BY annee DESC;");
+					
+					// Générer les options du menu déroulant
+					while ($annee = $annees->fetch()) {
+						echo "<option value=\"" . $annee['annee'] . "\">" . $annee['annee'] . "</option>";
+					}
+					?>
+				</select>
+				<input type="submit" value="Rechercher">
+			</form>
+			
+		</select>
+		<input type="submit" value="Rechercher">
 	</form>
+	
 	<br>
 	<form action="liste.php" method="get">
 		<label for="ANNEE">Année :</label>
