@@ -8,7 +8,7 @@ $base->exec("SET CHARACTER SET utf8");
 $annees = array();
 $retour = $base->query('SELECT DISTINCT annee FROM movies;');
 while ($data = $retour->fetch()){
-    $annees[] = $data['annee'];
+    $annee[] = $data['annee'];
 }
 
 // Récupérer l'année de recherche
