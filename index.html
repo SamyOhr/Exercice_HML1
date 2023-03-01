@@ -4,25 +4,21 @@
 	<title>Liste des films</title>
 </head>
 <body>
-	<a href="liste.php">Voir le code</a>
-	<a href="insert.php">Voir le code</a>
+	<a href="liste.php">Voir la liste des films</a>
 	<br>
 	<br>
-	<html>
-		<body>
-		<h1>Formulaire de saisie</h1>
-		<form action="insert.php" method="GET">
+	<h1>Formulaire de saisie</h1>
+	<form action="insert.php" method="GET">
 		<p>TITRE ? <input name="titre"/></p>
 		<p>GENRE ? <input name="genre"/></p>
 		<p>ANNEE ? <input name="annee"/></p>
 		<p><input type="submit"/></p>
-		</form>
-		<br>
-		<form action="liste.php" method="get">
-			<label for="ANNEE">Année :</label>
-			<input type="text" id="ANNEE" name="ANNEE">
-			<input type="submit" value="Rechercher">
-		  </form>
-		  
+	</form>
+	<br>
+	<form action="liste.php" method="get">
+		<label for="ANNEE">Année :</label>
+		<input type="text" id="ANNEE" name="annee">
+		<input type="submit" value="Rechercher">
+	</form>
 </body>
 </html>
