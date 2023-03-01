@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Liste de films</title>
+    <title>Liste des films</title>
 </head>
 <body>
-	<h1>Liste de films</h1>
-	<form method="get" action="liste.php">
-		<p>ANNEE ? <SELECT name="annee">
-			<?php
-			//Lister le contenu de la table movies
-			//1° - Connexion à la BDD
-			$base = new PDO('mysql:host=localhost; dbname=id20205701_samy', 'id20205701_samyouicher', '/&*hX18M$A}2#QGr');
-			$base->exec("SET CHARACTER SET utf8");
-
-			//2° - Préparation de requette et execution
-			$retour = $base->query('SELECT DISTINCT annee FROM movies;');
-
-			//3° - Lecture du resultat de la requette
-			while ($data = $retour->fetch()){
-				echo "<option>".$data['annee']."</option>";
-			}
-			?>
-		</SELECT></p>
-		<p><input type="submit" value="Rechercher"></p>
-	</form>
+    <a href="liste.php">Voir le code</a>
+    <a href="insert.php">Voir le code</a>
+    <br>
+    <br>
+    <h1>Formulaire de saisie</h1>
+    <form action="insert.php" method="GET">
+        <p>TITRE ? <input name="titre"/></p>
+        <p>GENRE ? <input name="genre"/></p>
+        <p>ANNEE ? <input name="annee"/></p>
+        <p><input type="submit"/></p>
+    </form>
+    <br>
+    <form action="liste.php" method="get">
+        <label for="ANNEE">Année :</label>
+        <select id="ANNEE" name="ANNEE">
+            <option value="">-- Sélectionnez une année --</option>
+            <?php foreach($annees as $annee) { ?>
+            <option value="<?php echo $annee; ?>" <?php if($ANNEE == $annee) echo 'selected="selected"'; ?>><?php echo $annee; ?></option>
+            <?php } ?>
+        </select>
+        <input type="submit" value="Rechercher">
+    </form>
 </body>
 </html>
