@@ -41,9 +41,5 @@ if (mysqli_num_rows($result) > 0) {
 // Fermer la connexion à la base de données
 mysqli_close($conn);
 ?>
-
-
-?>
-
 </body>
 </html>
