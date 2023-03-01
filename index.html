@@ -17,11 +17,11 @@
     </form>
     <br>
     <form action="liste.php" method="get">
-        <label for="ANNEE">Année :</label>
-        <select id="ANNEE" name="ANNEE">
+        <label for="annee">Année :</label>
+        <select id="annee" name="annee">
             <option value="">-- Sélectionnez une année --</option>
             <?php foreach($annees as $ANNEE) { ?>
-            <option value="<?php echo $ANNEE; ?>" <?php if($ANNEE == $ANNEE) echo 'selected="selected"'; ?>><?php echo $ANNEE; ?></option>
+            <option value="<?php echo $annee; ?>" <?php if($ANNEE == $annee) echo 'selected="selected"'; ?>><?php echo $ANNEE; ?></option>
             <?php } ?>
         </select>
         <input type="submit" value="Rechercher">
