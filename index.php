@@ -16,7 +16,7 @@
 		<p><input type="submit"/></p>
 	</form>
 	<br>
-	<form action="liste.php" method="get">
+	<form action="liste.php" method="GET">
 		<label for="ANNEE">Année :</label>
 		<?php
 		//1° - Connexion à la BDD
