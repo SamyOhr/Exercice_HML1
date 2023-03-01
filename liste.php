@@ -1,6 +1,6 @@
 <html>
 <body>
-	<h1>Liste des film</h1>
+	<h1>Liste des films</h1>
 	<?php
 	// Récupérer l'année de recherche
 	$ANNEE = $_GET['annee'];
