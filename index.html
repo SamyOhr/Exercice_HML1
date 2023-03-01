@@ -24,16 +24,15 @@
 				$base = new PDO('mysql:host=localhost; dbname=id20205701_samy', 'id20205701_samyouicher', '/&*hX18M$A}2#QGr');
 				$base->exec("SET CHARACTER SET utf8");
 				
-				// Requête pour récupérer les années où il y a des films disponibles
-				$retour = $base->query('SELECT DISTINCT annee FROM movies ORDER BY annee DESC;');
-				
-				// Boucle pour générer les options du menu déroulant
-				while ($data = $retour->fetch()) {
-					echo '<option value="' . $data['annee'] . '">' . $data['annee'] . '</option>';
+				//2° - Préparation de requette et execution
+				$retour = $base->query('SELECT DISTINCT annee FROM movies;');
+
+				//3° - Lecture du resultat de la requette
+				while ($data = $retour->fetch()){
+				echo "<option>".$data['annee']."</option>";
 				}
-			?>
-		</select>
-		<input type="submit" value="Rechercher">
-	</form>
+				?>
+		</SELECT>
+				</p>
 </body>
 </html>
