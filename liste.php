@@ -15,10 +15,10 @@ echo $data['id']." ".$data['titre']." ".$data['genre']." ".$data['annee']."</br>
 }
 <?php
 // Connexion à la base de données
-$host = "localhost";
-$user = "id20205701_samyouicher";
-$password = "/&*hX18M$A}2#QGr";
-$dbname = "id20205701_samy";
+$host = 'localhost';
+$user = 'id20205701_samyouicher';
+$password = '/&*hX18M$A}2#QGr';
+$dbname = 'id20205701_samy';
 $conn = mysqli_connect($host, $user, $password, $dbname);
 
 // Vérifier la connexion
