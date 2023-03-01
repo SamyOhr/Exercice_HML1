@@ -1,6 +1,6 @@
 <html>
 <body>
-<h1>Liste des films2</h1>
+<h1>Liste des films</h1>
 <?php
 //Lister le contenu de la table movies
 //1° - Connexion à la BDD
