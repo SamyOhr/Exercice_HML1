@@ -13,25 +13,21 @@
 	$ANNEE = $base->quote($ANNEE);
 
 	// Construire la requête SQL
-	$sql = "SELECT titre FROM movies WHERE annee = $ANNEE";
+	<p>ANNEE ? <SELECT name="annee">
 
-	// Exécuter la requête SQL
-	$retour = $base->query($sql);
+    <?php
 
-	// Vérifier si des résultats ont été trouvés
-	if ($retour->rowCount() > 0) {
-		// Afficher les résultats sous forme de liste
-		echo "<ul>";
-		while ($data = $retour->fetch()) {
-			echo "<li>" . $data["titre"] . "</li>";
-		}
-		echo "</ul>";
-	} else {
-		echo "Aucun film trouvé pour l'année $ANNEE";
-	}
 
-	// Fermer la connexion à la base de données
-	$base = null;
-	?>
+//2° - Préparation de requette et execution
+    $retour = $base->query('SELECT DISTINCT annee FROM movies;');
+
+//3° - Lecture du resultat de la requette
+    while ($data = $retour->fetch()){
+    echo "<option>".$data['annee']."</option>";
+    }
+
+    ?>
+    </SELECT>
+    </p>
 </body>
 </html>
