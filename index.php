@@ -1,40 +1,66 @@
-<!DOCTYPE html>
 <html>
 <head>
-	<title>Liste des films</title>
+<style>
+#zonedejeux{background-color:antiquewhite;
+			width:900px; height:400px;
+			position:absolute; top:3px; left:3px;
+			z-index:1;}
+h1{position:absolute;top:-7px; left:320px; z-index:2;}
+</style>
+
+<script>
+//var globale
+var speed = 500;
+
+function principale(){
+	//Ajout d'un écouteur sur les touches
+	window.addEventListener('keydown', deplacement, true);
+	//Lance la fonction bouger() à interval de "speed"
+	enemy = setInterval(bouger, speed);
+	
+}
+
+function bouger(){
+
+	//Code à créer pour faire bouger la boule enemy
+	
+}
+
+
+function deplacement(evt) {
+		   var ballX = parseInt(document.getElementById('ball').getAttribute("cx"));
+		   var ballY = parseInt(document.getElementById('ball').getAttribute("cy"));
+           switch (evt.keyCode) {
+                // Gauche 
+                case 37:
+					ballX -= 15;
+                    if(ballX<15){ballX=15;}
+					document.getElementById('ball').setAttribute("cx", ballX);
+					break;
+                // Droite 
+                case 39:
+
+
+				// Haut 
+                case 38:
+
+
+				// Bas 
+                case 40:
+
+
+            }
+
+}
+
+	 
+</script>
 </head>
+<body onload="principale()">
+	<h1>Jeux Javascript</h1>
+	<svg id="zonedejeux">
+	<circle cx="450" cy="200" r="15" fill="tomato" id="ball" />
+	
+	</svg>
 <body>
-	<a href="liste.php">Voir le code</a>
-	<a href="insert.php">Voir le code</a>
-	<br>
-	<br>
-	<h1>Formulaire de saisie</h1>
-	<form action="insert.php" method="GET">
-		<p>TITRE ? <input name="titre"/></p>
-		<p>GENRE ? <input name="genre"/></p>
-		<p>ANNEE ? <input name="annee"/></p>
-		<p><input type="submit"/></p>
-	</form>
-	<br>
-	<form action="liste.php" method="GET">
-		<label for="ANNEE">Année :</label>
-		<?php
-		//1° - Connexion à la BDD
-		$base = new PDO('mysql:host=localhost; dbname=id20205701_samy', 'id20205701_samyouicher', '/&*hX18M$A}2#QGr');
-		$base->exec("SET CHARACTER SET utf8");
-
-		//2° - Préparation de requette et execution
-		$retour = $base->query('SELECT DISTINCT annee FROM movies;');
-
-		//3° - Lecture du resultat de la requette
-		echo "<select name='annee' id='ANNEE'>";
-		while ($data = $retour->fetch()){
-			echo "<option value='".$data['annee']."'>".$data['annee']."</option>";
-		}
-		echo "</select>";
-		?>
-		<input type="submit" value="Rechercher">
-	</form>
-</body>
 </html>
-
