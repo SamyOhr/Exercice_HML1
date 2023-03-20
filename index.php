@@ -1,13 +1,12 @@
 <html>
 <head>
-    <title>Jeu Javascript</title>
-    <style>
-        #zonedejeux {
-            width: 900px;
-            height: 400px;
-            border: 1px solid black;
-        }
-    </style>
+<style>
+#zonedejeux{background-color:antiquewhite;
+			width:900px; height:400px;
+			position:absolute; top:3px; left:3px;
+			z-index:1;}
+h1{position:absolute;top:-7px; left:320px; z-index:2;}
+</style>
 </head>
 <body onload="principale()">
     <h1>Jeu Javascript</h1>
