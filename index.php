@@ -65,13 +65,27 @@ h1{position:absolute;top:-7px; left:320px; z-index:2;}
     }
 
     function bouger() {
-        // Move the enemy ball from right to left
-        enemyX -= 5;
-        if (enemyX < -15) {
-            enemyX = 850;
-        }
-        document.getElementById('enemy').setAttribute('cx', enemyX);
-    }
+  // Move the enemy ball from right to left
+  enemyX -= 5;
+  if (enemyX < -15) {
+    enemyX = 850;
+  }
+
+  // Update the position of the enemy ball to follow the player ball
+  if (enemyX > ballX) {
+    enemyX -= 2;
+  } else {
+    enemyX += 2;
+  }
+  if (enemyY > ballY) {
+    enemyY -= 2;
+  } else {
+    enemyY += 2;
+  }
+
+  document.getElementById('enemy').setAttribute('cx', enemyX);
+  document.getElementById('enemy').setAttribute('cy', enemyY);
+}
     </script>
 </body>
 </html>
