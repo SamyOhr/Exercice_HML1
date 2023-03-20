@@ -1,80 +1,81 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <title>Jeu de balle SVG</title>
-    <style>
-        circle {
-            fill: black;
-        }
-        #player {
-            fill: red;
-        }
-        #enemy {
-            fill: blue;
-        }
-    </style>
+<style>
+#zonedejeux{background-color:antiquewhite;
+			width:900px; height:400px;
+			position:absolute; top:3px; left:3px;
+			z-index:1;}
+h1{position:absolute;top:-7px; left:320px; z-index:2;}
+</style>
 </head>
-<body>
-    <svg viewBox="0 0 800 400" width="800" height="400">
-        <circle id="player" r="15" cx="50" cy="200" />
-        <circle id="enemy" r="15" cx="750" cy="200" />
+<body onload="principale()">
+    <h1>Jeu Javascript</h1>
+    <svg id="zonedejeux">
+	<circle cx="450" cy="200" r="15" fill="tomato" id="player" />>
+        <circle cx="850" cy="200" r="15" fill="blue" id="enemy" />
     </svg>
-
     <script>
     var playerY = 200;
     var ballY = 200;
-    var enemyX = 750;
-    var speed = 10;
+    var enemyX = 850;
+    var speed = 20;
 
-    function principale() {
-        document.addEventListener("keydown", (event) => {
-            deplacer(event);
-        });
-
-        // Start moving the player ball
-        setInterval(jouer, speed);
-        // Start moving the enemy ball
+    function principale(){
+        window.addEventListener("keydown", deplacement, false);
         setInterval(bouger, speed);
     }
 
-    function jouer() {
-        document.getElementById('player').setAttribute("cy", ballY);
-    }
+    function deplacement(evt) {
+            var code = evt.keyCode;
+            var ballY = playerY;
 
-    function deplacer(event) {
-        switch(event.keyCode){
-        // Up
-        case 38:
-            ballY -= 15;
-            if (ballY < 15){ballY = 15;}
-            break;
+            switch (code) {
+                // Right
+                case 39:
+                    var ballX = document.getElementById('player').getAttribute('cx');
+                    ballX = parseInt(ballX) + 15;
+                    if (ballX > 885) {ballX = 885;}
+                    document.getElementById('player').setAttribute("cx", ballX);
+                    break;
 
-        // Down
-        case 40:
-            ballY += 15;
-            if (ballY > 385){ballY = 385;}
-            break;
-        }
+                // Up
+                case 38:
+                    ballY -= 15;
+                    if (ballY < 15){ballY = 15;}
+                    document.getElementById('player').setAttribute("cy", ballY);
+                    break;
+
+                // Left
+                case 37:
+                    var ballX = document.getElementById('player').getAttribute('cx');
+                    ballX = parseInt(ballX) - 15;
+                    if (ballX < 15) {ballX = 15;}
+                    document.getElementById('player').setAttribute("cx", ballX);
+                    break;
+
+                // Down
+                case 40:
+                    ballY += 15;
+                    if (ballY > 385){ballY = 385;}
+                    document.getElementById('player').setAttribute("cy", ballY);
+                    break;
+            }
 
         playerY = ballY;
     }
 
     function bouger() {
         // Move the enemy ball from right to left
-        var diff = ballY - enemyY;
-        if (diff > 0) {
-            enemyY += 2;
-        } else if (diff < 0) {
-            enemyY -= 2;
+        enemyX -= 5;
+        if (enemyX < -15) {
+            enemyX = 850;
         }
-        if (enemyY < 15){enemyY = 15;}
-        if (enemyY > 385){enemyY = 385;}
-        document.getElementById('enemy').setAttribute('cy', enemyY);
+        document.getElementById('enemy').setAttribute('cx', enemyX);
     }
-
-    principale();
     </script>
 </body>
 </html>
-   
-  
+
+        
+
+          
