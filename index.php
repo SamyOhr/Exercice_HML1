@@ -64,33 +64,14 @@ h1{position:absolute;top:-7px; left:320px; z-index:2;}
         playerY = ballY;
     }
 
-    function bouger(){
-    var ballX = parseInt(document.getElementById('ball').getAttribute("cx"));
-    var ballY = parseInt(document.getElementById('ball').getAttribute("cy"));
-
-    var ennemy_ballX = parseInt(document.getElementById('ennemy_ball').getAttribute("cx"));
-    var ennemy_ballY = parseInt(document.getElementById('ennemy_ball').getAttribute("cy"));
-
-    if (ballY > ennemy_ballY) {
-        ennemy_ballY += 15;
-    } else if (ballY < ennemy_ballY) {
-        ennemy_ballY -= 15;
-
-    }
-
-    if (ennemy_ballY < 0){
-        ennemy_ballY = rayon;
-    } 
-    if (ennemy_ballY > height){
-        ennemy_ballY =  height - rayon;
-    }
-    
-    ennemy_ballX-= 15;
-        if (ennemy_ballX <= 15) {
-            ennemy_ballX = width - rayon;
+    function bouger() {
+        // Move the enemy ball from right to left
+        enemyX -= 5;
+        if (enemyX < -15) {
+            enemyX = 850;
         }
-    document.getElementById('ennemy_ball').setAttribute("cx",ennemy_ballX);
-    document.getElementById('ennemy_ball').setAttribute("cy",ennemy_ballY);
+        document.getElementById('enemy').setAttribute('cx', enemyX);
+    }
     </script>
 </body>
 </html>
