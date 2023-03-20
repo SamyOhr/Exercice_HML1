@@ -31,33 +31,33 @@ function deplacement(evt) {
 		   var ballX = parseInt(document.getElementById('ball').getAttribute("cx"));
 		   var ballY = parseInt(document.getElementById('ball').getAttribute("cy"));
            switch (evt.keyCode) {
-                // Gauche 
-                case 37:
+               // Gauche 
+			   case 37:
 					ballX -= 15;
                     if(ballX<15){ballX=15;}
 					document.getElementById('ball').setAttribute("cx", ballX);
 					break;
                 // Droite 
                 case 39:
-					ballX -= 15;
-                    if(ballX<15){ballX=15;}
-					document.getElementById('ball').setAttribute("cx", ballX);
-					break;
+                    ballX += 15;
+                    if (ballX > 885) {ballX = 885;}
+                    document.getElementById('ball').setAttribute("cx",ballX);
+                    break;
 
 				// Haut 
                 case 38:
-					ballX -= 15;
-                    if(ballX<15){ballX=15;}
-					document.getElementById('ball').setAttribute("cx", ballX);
-					break;
+                    ballY -= 15;
+                    if (ballY < 15){ballY = 15;}
+                    document.getElementById('ball').setAttribute("cy",ballY);
+                    break;
+
 
 				// Bas 
                 case 40:
-
-					ballX -= 15;
-                    if(ballX<15){ballX=15;}
-					document.getElementById('ball').setAttribute("cx", ballX);
-					break;
+                ballY += 15;
+                    if (ballY > 385){ballY = 385;}
+                    document.getElementById('ball').setAttribute("cy",ballY);
+                    break;
             }
 
 }
