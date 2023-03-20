@@ -1,24 +1,30 @@
+<!DOCTYPE html>
 <html>
 <head>
-<style>
-#zonedejeux{background-color:antiquewhite;
-			width:900px; height:400px;
-			position:absolute; top:3px; left:3px;
-			z-index:1;}
-h1{position:absolute;top:-7px; left:320px; z-index:2;}
-</style>
+    <title>Jeu de balle SVG</title>
+    <style>
+        circle {
+            fill: black;
+        }
+        #player {
+            fill: red;
+        }
+        #enemy {
+            fill: blue;
+        }
+    </style>
 </head>
-<body onload="principale()">
-    <h1>Jeu Javascript</h1>
-    <svg id="zonedejeux">
-	<circle cx="450" cy="200" r="15" fill="tomato" id="player" />>
-        <circle cx="850" cy="200" r="15" fill="blue" id="enemy" />
+<body>
+    <svg viewBox="0 0 800 400" width="800" height="400">
+        <circle id="player" r="15" cx="50" cy="200" />
+        <circle id="enemy" r="15" cx="750" cy="200" />
     </svg>
+
     <script>
     var playerY = 200;
     var ballY = 200;
-    var enemyX = 850;
-    var speed = 20;
+    var enemyX = 750;
+    var speed = 10;
 
     function principale() {
         document.addEventListener("keydown", (event) => {
@@ -30,7 +36,8 @@ h1{position:absolute;top:-7px; left:320px; z-index:2;}
         // Start moving the enemy ball
         setInterval(bouger, speed);
     }
-	function jouer() {
+
+    function jouer() {
         document.getElementById('player').setAttribute("cy", ballY);
     }
 
@@ -70,10 +77,11 @@ h1{position:absolute;top:-7px; left:320px; z-index:2;}
                     break;
             }
 
+
         playerY = ballY;
     }
 
-	function bouger() {
+    function bouger() {
         // Move the enemy ball from right to left
         var diff = ballY - enemyY;
         if (diff > 0) {
@@ -90,5 +98,5 @@ h1{position:absolute;top:-7px; left:320px; z-index:2;}
     </script>
 </body>
 </html>
-
-          
+   
+  
