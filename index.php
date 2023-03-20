@@ -39,16 +39,25 @@ function deplacement(evt) {
 					break;
                 // Droite 
                 case 39:
-
+					ballX -= 15;
+                    if(ballX<15){ballX=15;}
+					document.getElementById('ball').setAttribute("cx", ballX);
+					break;
 
 				// Haut 
                 case 38:
-
+					ballX -= 15;
+                    if(ballX<15){ballX=15;}
+					document.getElementById('ball').setAttribute("cx", ballX);
+					break;
 
 				// Bas 
                 case 40:
 
-
+					ballX -= 15;
+                    if(ballX<15){ballX=15;}
+					document.getElementById('ball').setAttribute("cx", ballX);
+					break;
             }
 
 }
