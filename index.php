@@ -1,75 +1,79 @@
+<!DOCTYPE html>
 <html>
 <head>
-<style>
-#zonedejeux{background-color:antiquewhite;
-			width:900px; height:400px;
-			position:absolute; top:3px; left:3px;
-			z-index:1;}
-h1{position:absolute;top:-7px; left:320px; z-index:2;}
-</style>
+    <title>Jeux Javascript</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+        #zonedejeux {
+            width: 900px;
+            height: 400px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body onload="principale()">
+    <h1>Jeux Javascript</h1>
+    <svg id="zonedejeux">
+        <circle cx="450" cy="200" r="15" fill="tomato" id="player" />
+        <circle cx="800" cy="200" r="10" fill="blue" id="enemy" />
+    </svg>
+    <script type="text/javascript">
+        var playerY = 200;   // Initial position of the player circle
+        var enemyX = 800;    // Initial position of the enemy circle
+        var speed = 50;      // Speed of enemy movement (ms)
 
-<script>
-//var globale
-var speed = 500;
+        function principale() {
+            // Add listener to arrow keys
+            document.addEventListener('keydown', deplacement);
 
-function principale(){
-	//Ajout d'un écouteur sur les touches
-	window.addEventListener('keydown', deplacement, true);
-	//Lance la fonction bouger() à interval de "speed"
-	enemy = setInterval(bouger, speed);
-	
-}
+            // Start moving the enemy ball
+            setInterval(bouger, speed);
+        }
 
-function bouger(){
+        function deplacement(evt) {
+            var code = evt.keyCode;
+            var ballY = playerY;
 
-	//Code à créer pour faire bouger la boule enemy
-	
-}
-
-
-function deplacement(evt) {
-		   var ballX = parseInt(document.getElementById('ball').getAttribute("cx"));
-		   var ballY = parseInt(document.getElementById('ball').getAttribute("cy"));
-           switch (evt.keyCode) {
-               // Gauche 
-			   case 37:
-					ballX -= 15;
-                    if(ballX<15){ballX=15;}
-					document.getElementById('ball').setAttribute("cx", ballX);
-					break;
-                // Droite 
+            switch (code) {
+                // Right
                 case 39:
-                    ballX += 15;
+                    var ballX = document.getElementById('player').getAttribute('cx');
+                    ballX = parseInt(ballX) + 15;
                     if (ballX > 885) {ballX = 885;}
-                    document.getElementById('ball').setAttribute("cx",ballX);
+                    document.getElementById('player').setAttribute("cx", ballX);
                     break;
 
-				// Haut 
+                // Up
                 case 38:
                     ballY -= 15;
                     if (ballY < 15){ballY = 15;}
-                    document.getElementById('ball').setAttribute("cy",ballY);
+                    document.getElementById('player').setAttribute("cy", ballY);
                     break;
 
+                // Left
+                case 37:
+                    var ballX = document.getElementById('player').getAttribute('cx');
+                    ballX = parseInt(ballX) - 15;
+                    if (ballX < 15) {ballX = 15;}
+                    document.getElementById('player').setAttribute("cx", ballX);
+                    break;
 
-				// Bas 
+                // Down
                 case 40:
-                ballY += 15;
+                    ballY += 15;
                     if (ballY > 385){ballY = 385;}
-                    document.getElementById('ball').setAttribute("cy",ballY);
+                    document.getElementById('player').setAttribute("cy", ballY);
                     break;
             }
 
-}
+            playerY = ballY;
+        }
 
-	 
-</script>
-</head>
-<body onload="principale()">
-	<h1>Jeux Javascript</h1>
-	<svg id="zonedejeux">
-	<circle cx="450" cy="200" r="15" fill="tomato" id="ball" />
-	
-	</svg>
-<body>
+        function bouger() {
+            // Move the enemy ball from right to left
+            enemyX -= 5;
+            document.getElementById('enemy').setAttribute('cx', enemyX);
+        }
+    </script>
+</body>
 </html>
