@@ -41,42 +41,20 @@
         document.getElementById('player').setAttribute("cy", ballY);
     }
 
-    function deplacement(evt) {
-            var code = evt.keyCode;
-            var ballY = playerY;
+    function deplacer(event) {
+        switch(event.keyCode){
+        // Up
+        case 38:
+            ballY -= 15;
+            if (ballY < 15){ballY = 15;}
+            break;
 
-            switch (code) {
-                // Right
-                case 39:
-                    var ballX = document.getElementById('player').getAttribute('cx');
-                    ballX = parseInt(ballX) + 15;
-                    if (ballX > 885) {ballX = 885;}
-                    document.getElementById('player').setAttribute("cx", ballX);
-                    break;
-
-                // Up
-                case 38:
-                    ballY -= 15;
-                    if (ballY < 15){ballY = 15;}
-                    document.getElementById('player').setAttribute("cy", ballY);
-                    break;
-
-                // Left
-                case 37:
-                    var ballX = document.getElementById('player').getAttribute('cx');
-                    ballX = parseInt(ballX) - 15;
-                    if (ballX < 15) {ballX = 15;}
-                    document.getElementById('player').setAttribute("cx", ballX);
-                    break;
-
-                // Down
-                case 40:
-                    ballY += 15;
-                    if (ballY > 385){ballY = 385;}
-                    document.getElementById('player').setAttribute("cy", ballY);
-                    break;
-            }
-
+        // Down
+        case 40:
+            ballY += 15;
+            if (ballY > 385){ballY = 385;}
+            break;
+        }
 
         playerY = ballY;
     }
