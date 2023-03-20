@@ -11,7 +11,7 @@ h1{position:absolute;top:-7px; left:320px; z-index:2;}
 <body onload="principale()">
     <h1>Jeu Javascript</h1>
     <svg id="zonedejeux">
-        <circle cx="50" cy="200" r="15" fill="red" id="player" />
+	<circle cx="450" cy="200" r="15" fill="tomato" id="player" />>
         <circle cx="850" cy="200" r="15" fill="blue" id="enemy" />
     </svg>
     <script>
