@@ -20,9 +20,18 @@ h1{position:absolute;top:-7px; left:320px; z-index:2;}
     var enemyX = 850;
     var speed = 20;
 
-    function principale(){
-        window.addEventListener("keydown", deplacement, false);
+    function principale() {
+        document.addEventListener("keydown", (event) => {
+            deplacer(event);
+        });
+
+        // Start moving the player ball
+        setInterval(jouer, speed);
+        // Start moving the enemy ball
         setInterval(bouger, speed);
+    }
+	function jouer() {
+        document.getElementById('player').setAttribute("cy", ballY);
     }
 
     function deplacement(evt) {
@@ -64,32 +73,22 @@ h1{position:absolute;top:-7px; left:320px; z-index:2;}
         playerY = ballY;
     }
 
-    function bouger() {
-  // Move the enemy ball from right to left
-  enemyX -= 5;
-  if (enemyX < -15) {
-    enemyX = 850;
-  }
+	function bouger() {
+        // Move the enemy ball from right to left
+        var diff = ballY - enemyY;
+        if (diff > 0) {
+            enemyY += 2;
+        } else if (diff < 0) {
+            enemyY -= 2;
+        }
+        if (enemyY < 15){enemyY = 15;}
+        if (enemyY > 385){enemyY = 385;}
+        document.getElementById('enemy').setAttribute('cy', enemyY);
+    }
 
-  // Update the position of the enemy ball to follow the player ball
-  if (enemyX > ballX) {
-    enemyX -= 2;
-  } else {
-    enemyX += 2;
-  }
-  if (enemyY > ballY) {
-    enemyY -= 2;
-  } else {
-    enemyY += 2;
-  }
-
-  document.getElementById('enemy').setAttribute('cx', enemyX);
-  document.getElementById('enemy').setAttribute('cy', enemyY);
-}
+    principale();
     </script>
 </body>
 </html>
-
-        
 
           
